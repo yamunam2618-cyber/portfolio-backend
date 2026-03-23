@@ -24,16 +24,16 @@ const Feedback = mongoose.model("Feedback", FeedbackSchema);
 // ROUTE
 app.post("/feedback", async (req, res) => {
   try {
-    console.log(req.body);
+    console.log("BODY:", req.body);
+
     const newFeedback = new Feedback(req.body);
     await newFeedback.save();
+
+    console.log("✅ SAVED SUCCESSFULLY");
+
     res.json({ message: "Feedback saved successfully!" });
-  } catch {
+  } catch (err) {
+    console.log("❌ ERROR SAVING:", err);
     res.status(500).json({ message: "Error saving feedback" });
   }
-});
-
-// SERVER
-app.listen(5000, () => {
-  console.log("🚀 Server running on port 5000");
 });

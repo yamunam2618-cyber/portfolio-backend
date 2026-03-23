@@ -1,4 +1,5 @@
 console.log("Starting server...");
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -12,6 +13,7 @@ app.use(express.json());
 mongoose.connect("mongodb+srv://yamunam2618_db_user:Yamuna1234@cluster0.tikwxam.mongodb.net/portfolioDB?retryWrites=true&w=majority")
 .then(() => console.log("MongoDB Connected ✅"))
 .catch(err => console.log("Mongo Error ❌", err));
+
 // SCHEMA
 const FeedbackSchema = new mongoose.Schema({
   name: String,
@@ -37,6 +39,8 @@ app.post("/feedback", async (req, res) => {
     res.status(500).json({ message: "Error saving feedback" });
   }
 });
+
+// PORT (VERY IMPORTANT)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

@@ -9,9 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 // CONNECT MONGODB
-mongoose.connect("mongodb://yamunam2618_db_user:Yamuna1234@ac-rogdk2s-shard-00-00.tikwxam.mongodb.net:27017,ac-rogdk2s-shard-00-01.tikwxam.mongodb.net:27017,ac-rogdk2s-shard-00-02.tikwxam.mongodb.net:27017/portfolioDB?ssl=true&replicaSet=atlas-v7lozv-shard-0&authSource=admin&retryWrites=true&w=majority")
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log("❌ Error:", err));
+mongoose.connect("mongodb+srv://yamunam2618_db_user:Yamuna1234@cluster0.tikwxam.mongodb.net/portfolioDB?retryWrites=true&w=majority")
+.then(() => console.log("MongoDB Connected ✅"))
+.catch(err => console.log("Mongo Error ❌", err));
 // SCHEMA
 const FeedbackSchema = new mongoose.Schema({
   name: String,

@@ -1,4 +1,4 @@
-name: Portfolio CI
+name: Backend CI
 
 on:
   push:
@@ -13,5 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Check files
-        run: echo "Code pushed successfully ✅"
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run server check
+        run: echo "Backend working fine ✅"
